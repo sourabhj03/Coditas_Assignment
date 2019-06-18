@@ -1,0 +1,17 @@
+<div class="wrapper">
+	<header class="app-header">
+		<div class="dropdown-container">
+			<select class="sort-by-dropdown">
+				<option value="" disabled selected>Sort By:</option>
+				<option> Name (A-Z) </option>
+				<option> Name (Z-A) </option>
+				<option> Rank &#xf042; </option>
+				<option> Name (A-Z) </option>
+			</select>
+		</div>
+		<div class="search-box-container">
+			<input type="text" placeholder="Type a Name" class="search-box" [(ngModel)]="username" (change)="fetchUsers()">
+			<a (click)="clickeve()"><span><i class="fa fa-search" aria-hidden="true"></i></span></a>
+		</div>
+	</header>
+</div>
