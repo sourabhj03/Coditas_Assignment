@@ -10,8 +10,26 @@
 			</select>
 		</div>
 		<div class="search-box-container">
-			<input type="text" placeholder="Type a Name" class="search-box" [(ngModel)]="username" (change)="fetchUsers()">
-			<a (click)="clickeve()"><span><i class="fa fa-search" aria-hidden="true"></i></span></a>
+			<input type="text" placeholder="Type a Name" class="search-box" [(ngModel)]="username"
+				(change)="fetchUsers()">
+			<a><span><i class="fa fa-search" aria-hidden="true"></i></span></a>
 		</div>
 	</header>
+	<div class="list-card">
+		<p>Total Results: {{allUsers.total}} </p>
+		<div class="card" *ngFor="let user of allUsers">
+			<div class="card-content-left">
+				<img class="user-avatar" src="{{user.avatar_url}}">
+			</div>
+			<div class="card-content-right">
+				<h4 class="username">
+					<b>{{user.login}}</b>
+				</h4>
+				<p> Profile URL: {{user.url}} </p>
+				<p> ID: {{user.id}} </p>
+				<p> Score: {{user.score}} </p>
+			</div>
+
+		</div>
+	</div>
 </div>
