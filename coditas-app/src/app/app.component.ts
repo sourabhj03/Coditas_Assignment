@@ -21,7 +21,6 @@ export class AppComponent implements OnInit {
   public options: Array<string> = ['Name (A-Z)', 'Name (Z-A)', 'Rank Asc', 'Rank Desc']
   public username: string = '';
   public userDetails: object = {};
-  public selectedOption = '';
   public selectedUser: string = '';
   public collapse: boolean = false;
 
