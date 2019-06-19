@@ -14,7 +14,7 @@
 	</header>
 	<div class="list-card">
 		<p class="total-results" *ngIf="showList">Total Results: {{allUsers.total_count}}</p>
-		<div class="card" [ngClass]="{'active': selectedUser == user.login}" *ngFor="let user of allUsers.items">
+		<div class="card" [ngClass]="{'active': collapse == true && selectedUser == user.login}" *ngFor="let user of allUsers.items">
 			<div class="card-content-left">
 				<img class="user-avatar" src="{{user.avatar_url}}">
 			</div>
@@ -22,14 +22,14 @@
 				<p class="username">
 					<b>{{user.login}}</b>
 				</p>
-				<button class="user-details-button" (click)="showUserDetails($event, user.login)"> Details </button>
+				<button class="user-details-button" (click)="showUserDetails($event, user.login)"> {{collapse == true && selectedUser == user.login ? 'Collapse' : 'Details'}} </button>
 				<div class="user-info">
 					<p> Profile URL: {{user.url}} </p>
 					<p> ID: {{user.id}} </p>
 					<p> Score: {{user.score}} </p>
 				</div>
 				<div class="user-details-wrapper" *ngIf="selectedUser == user.login">
-					<div class="user-details">
+					<div class="user-details" *ngIf="collapse && selectedUser == user.login">
 						<span> <b>Repo:</b> </span>
 						<span>{{userDetails.name}} </span>
 						<span> <b>Language Used:</b> </span>

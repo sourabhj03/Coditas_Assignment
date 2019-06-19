@@ -23,6 +23,7 @@ export class AppComponent implements OnInit {
   public userDetails: object = {};
   public selectedOption = '';
   public selectedUser: string = '';
+  public collapse: boolean = false;
 
   public compare(a, b): number {
     if ((event.target as HTMLSelectElement).value === 'Name (A-Z)' || (event.target as HTMLSelectElement).value === 'Name (Z-A)') {
@@ -76,12 +77,15 @@ export class AppComponent implements OnInit {
   }
 
   showUserDetails(event, username: string) {
+    this.collapse = !this.collapse;
     this.userDetails = {};
     this.selectedUser = username;
-    this.httpService.getData('https://api.github.com/users/' + username + '/repos')
+    if (this.collapse === true) {
+      this.httpService.getData('https://api.github.com/users/' + username + '/repos')
       .subscribe(data => {
         this.userDetails = data[0];
         console.log('Details Data', data);
       })
+    }
   }
 }
