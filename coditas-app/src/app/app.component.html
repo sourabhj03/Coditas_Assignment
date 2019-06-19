@@ -1,35 +1,42 @@
 <div class="wrapper">
 	<header class="app-header">
 		<div class="dropdown-container">
-			<select class="sort-by-dropdown">
+			<select class="sort-by-dropdown" (change)="onChange($event)">
 				<option value="" disabled selected>Sort By:</option>
-				<option> Name (A-Z) </option>
-				<option> Name (Z-A) </option>
-				<option> Rank &#xf042; </option>
-				<option> Name (A-Z) </option>
+				<option [(ngValue)]="selectedOption" *ngFor="let i of options"> {{i}} </option>
 			</select>
 		</div>
 		<div class="search-box-container">
 			<input type="text" placeholder="Type a Name" class="search-box" [(ngModel)]="username"
-				(change)="fetchUsers()">
+				(keyup)="fetchUsers($event)">
 			<a><span><i class="fa fa-search" aria-hidden="true"></i></span></a>
 		</div>
 	</header>
 	<div class="list-card">
-		<p>Total Results: {{allUsers.total}} </p>
-		<div class="card" *ngFor="let user of allUsers">
+		<p class="total-results" *ngIf="showList">Total Results: {{allUsers.total_count}}</p>
+		<div class="card" [ngClass]="{'active': selectedUser == user.login}" *ngFor="let user of allUsers.items">
 			<div class="card-content-left">
 				<img class="user-avatar" src="{{user.avatar_url}}">
 			</div>
 			<div class="card-content-right">
-				<h4 class="username">
+				<p class="username">
 					<b>{{user.login}}</b>
-				</h4>
-				<p> Profile URL: {{user.url}} </p>
-				<p> ID: {{user.id}} </p>
-				<p> Score: {{user.score}} </p>
+				</p>
+				<button class="user-details-button" (click)="showUserDetails($event, user.login)"> Details </button>
+				<div class="user-info">
+					<p> Profile URL: {{user.url}} </p>
+					<p> ID: {{user.id}} </p>
+					<p> Score: {{user.score}} </p>
+				</div>
+				<div class="user-details-wrapper" *ngIf="selectedUser == user.login">
+					<div class="user-details">
+						<span> <b>Repo:</b> </span>
+						<span>{{userDetails.name}} </span>
+						<span> <b>Language Used:</b> </span>
+						<span>{{userDetails.language}} </span>
+					</div>
+				</div>
 			</div>
-
 		</div>
 	</div>
 </div>
