@@ -1,7 +1,10 @@
+$blueColor: #0078d4;
+$greyColor: #eeeeee;
+
 .wrapper {
     .app-header {
         height: 60px;
-        background-color: #0078d4;
+        background-color: $blueColor;
 
         .dropdown-container {
             width: 300px;
@@ -11,7 +14,7 @@
 
             .sort-by-dropdown {
                 margin: 12px auto;
-                font-size: 12px;
+                font-size: 13px;
                 width: 150px;
                 height: 30px;
                 border-radius: 3px;
@@ -26,24 +29,24 @@
 				.search-box {
 					height: 25px;
 					width: 250px;
-					font-size: 12px;
+					font-size: 13px;
 				}
 
 				span {
 					position: absolute;
 					right: 55px;
 					top: 8px;
-					font-size: 12px;
+					font-size: 13px;
 					margin-top: 2px;
 				}
 		  }
         
 	}
 	.list-card {
-		background-color: #eeeeee;
+		background-color: $greyColor;
 
 		.total-results {
-			font-size: 12px;
+			font-size: 13px;
 			position: relative;
 			left: 400px;
 			top: 10px;
@@ -59,7 +62,7 @@
 			padding: 20px;
 			
 			&.active {
-				height: 150px;
+				height: 200px;
 				-webkit-transition: height .5s;
 				transition: height .5s;
 			}
@@ -98,6 +101,7 @@
 							font-size: 13px;
 							float: left;
 							margin-right: 10px;
+							margin-bottom: 20px;
 						}
 					}
 				}

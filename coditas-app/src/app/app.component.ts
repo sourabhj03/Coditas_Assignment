@@ -38,7 +38,7 @@ export class AppComponent implements OnInit {
       if ((event.target as HTMLSelectElement).value === 'Name (Z-A)') {
         return comparison * -1;
       }
-      else { 
+      else {
         return comparison;
       }
     }
@@ -66,7 +66,7 @@ export class AppComponent implements OnInit {
     }
     this.httpService.getData(this.baseUrl, { q: this.username })
       .subscribe(data => {
-        this.showList = !this.showList;
+        this.showList = true;
         this.allUsers = data;
         console.log(data);
       });
@@ -78,14 +78,15 @@ export class AppComponent implements OnInit {
 
   showUserDetails(event, username: string) {
     this.collapse = !this.collapse;
+    this.selectedUser = '';
     this.userDetails = {};
-    this.selectedUser = username;
     if (this.collapse === true) {
       this.httpService.getData('https://api.github.com/users/' + username + '/repos')
-      .subscribe(data => {
-        this.userDetails = data[0];
-        console.log('Details Data', data);
-      })
+        .subscribe(data => {
+          this.userDetails = data[0];
+          this.selectedUser = username;
+          console.log('Details Data', data);
+        })
     }
   }
 }

@@ -30,10 +30,16 @@
 				</div>
 				<div class="user-details-wrapper" *ngIf="selectedUser == user.login">
 					<div class="user-details" *ngIf="collapse && selectedUser == user.login">
-						<span> <b>Repo:</b> </span>
+						<span style="font-weight: bold"> Repo: </span>
 						<span>{{userDetails.name}} </span>
-						<span> <b>Language Used:</b> </span>
+						<span style="font-weight: bold">Language Used:</span>
 						<span>{{userDetails.language}} </span>
+						<span style="font-weight: bold"> Open Issue Count:  </span>
+						<span> {{userDetails.open_issues_count}} </span>
+						<span style="font-weight: bold"> Watchers:  </span>
+						<span> {{userDetails.watchers}} </span>
+						<span style="font-weight: bold"> Fork:  </span>
+						<span> {{userDetails.forks}} </span>
 					</div>
 				</div>
 			</div>
