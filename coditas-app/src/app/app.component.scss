@@ -1,7 +1,10 @@
+$blueColor: #0078d4;
+$greyColor: #eeeeee;
+
 .wrapper {
     .app-header {
         height: 60px;
-        background-color: #0078d4;
+        background-color: $blueColor;
 
         .dropdown-container {
             width: 300px;
@@ -11,7 +14,7 @@
 
             .sort-by-dropdown {
                 margin: 12px auto;
-                font-size: 12px;
+                font-size: 13px;
                 width: 150px;
                 height: 30px;
                 border-radius: 3px;
@@ -26,17 +29,94 @@
 				.search-box {
 					height: 25px;
 					width: 250px;
-					font-size: 12px;
+					font-size: 13px;
 				}
 
 				span {
 					position: absolute;
 					right: 55px;
 					top: 8px;
-					font-size: 12px;
+					font-size: 13px;
 					margin-top: 2px;
 				}
 		  }
         
-    }
+	}
+	.list-card {
+		background-color: $greyColor;
+
+		.total-results {
+			font-size: 13px;
+			position: relative;
+			left: 400px;
+			top: 10px;
+		}
+		.card {
+			width: 500px;
+			height: 80px;
+			margin: 20px auto;
+			background: white;
+			box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+			transition: 0.3s;
+			border-radius: 2px;
+			padding: 20px;
+			
+			&.active {
+				height: 200px;
+				-webkit-transition: height .5s;
+				transition: height .5s;
+			}
+			.card-content-left {
+				float: left;
+				width: 15%;
+
+				.user-avatar {
+					float: left;
+					width: 60px;
+					border-radius: 50%;
+				}
+			}
+
+			.card-content-right {
+				width: 85%;
+				float: left;
+
+				.username {
+					font-weight: bold;
+					font-size: 14px;
+					margin: 10px 0;
+				}
+
+				.user-info {
+					p {
+						font-size: 12px;
+						margin-bottom: 10px;
+					}
+				}
+				.user-details-wrapper {
+					.user-details {
+						margin: 15px 0;
+
+						span {
+							font-size: 13px;
+							float: left;
+							margin-right: 10px;
+							margin-bottom: 20px;
+						}
+					}
+				}
+				.user-details-button {
+					float: right;
+					background-color: white;
+					border: 1px solid #0078d4;
+					color: #0078d4;
+					border-radius: 3px;
+					width: 80px;
+					height: 30px;
+					font-weight: bold;
+				}
+			}
+			
+		}
+	}
 } 
